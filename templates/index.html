@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Reddit Post Collector</title>
+</head>
+
+<body>
+    <h1>Reddit Post Collector</h1>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+
+    <form method="POST">
+        <div class="group">
+            <input type="text" id="subreddit" name="subreddit" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Subreddit</label>
+        </div>
+
+        <div class="group">
+            <input type="text" id="celebrity" name="celebrity" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Celebrity</label>
+        </div>
+
+        <div class="group range-group">
+            <label for="limit" class="range">Post Limit :</label>
+            <input type="range" id="limit" name="limit" min="10" max="50" value="10">
+            <span id="limitValue" class="range-value">10</span>
+        </div>
+        
+
+        <button type="submit" class="darksoul-hover-fill-button1">
+            <div class="color-fill-1"></div>
+            <p>Collect Posts</p>
+        </button>
+        
+            </form>
+
+    <script>
+    const slider = document.getElementById("limit");
+    const valueDisplay = document.getElementById("limitValue");
+    
+    // Display initial value
+    valueDisplay.textContent = slider.value;
+    
+    // Update value on change
+    slider.oninput = function() {
+        valueDisplay.textContent = this.value;
+    }
+</script>
+</body>
+
+</html>

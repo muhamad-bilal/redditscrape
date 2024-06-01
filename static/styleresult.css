@@ -1,0 +1,153 @@
+body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: #0040C1;
+    position: relative;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+h1 {
+    color: #fff;
+    font-size: 50px;
+    z-index: 1;
+}
+
+h2 {
+    color: #fff;
+    z-index: 1;
+}
+
+.cube {
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #003298;
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 12s ease-in forwards infinite;
+}
+
+.cube:nth-child(2n) {
+    border-color: #0051f4;
+}
+
+.cube:nth-child(2) {
+    animation-delay: 2s;
+    left: 25vw;
+    top: 40vh;
+}
+
+.cube:nth-child(3) {
+    animation-delay: 4s;
+    left: 75vw;
+    top: 50vh;
+}
+
+.cube:nth-child(4) {
+    animation-delay: 6s;
+    left: 90vw;
+    top: 10vh;
+}
+
+.cube:nth-child(5) {
+    animation-delay: 8s;
+    left: 10vw;
+    top: 85vh;
+}
+
+.cube:nth-child(6) {
+    animation-delay: 10s;
+    left: 50vw;
+    top: 10vh;
+}
+
+@keyframes cube {
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+
+/* In your styleresult.css file */
+a {
+    color: #007bff;
+    /* Blue color */
+    text-decoration: none;
+    /* Remove default underline */
+    font-weight: bold;
+    /* Make it bold */
+}
+
+a:hover {
+    text-decoration: underline;
+    /* Add underline on hover */
+}
+
+
+/* Basic container styling */
+.post-container {
+   border: 2px solid  rgb(122, 197, 250);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease; /* Only transition box-shadow */
+    max-width: 80%; /* Limit container width to prevent overlap */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* Add this line for the transform-origin to work */
+    z-index: 0;          /* Ensure proper stacking order */
+    transition: transform 0.3s ease-out; 
+    cursor: pointer;
+    color:  rgb(160, 216, 255);
+}
+
+/* Hide the post content initially */
+.post-container .post-content {
+    display: none;
+    height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 5px;
+    /* Smooth transition */
+}
+
+/* Show the post content when the container is clicked */
+.post-container.expanded .post-content {
+    display: block;
+    height:auto;
+    /* Adjust as needed */
+}
+.post-container:not(.expanded):hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.post-container:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);   
+    z-index: 1;              /* Slightly darker border on hover */
+}
+
+.post-container:hover + .post-container {
+    transform: translateY(10px);  /* Move the next container down */
+}
+
+.post-container:hover ~ .post-container {
+    transform: translateY(10px);  /* Move all following containers down */
+}
+
+li{
+    list-style-type: none;
+}

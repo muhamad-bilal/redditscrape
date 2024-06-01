@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleresult.css') }}">
+    <title>Reddit Post Collector</title>
+</head>
+
+<body>
+    <h1>Your data has been collected.</h1>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+
+    
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if posts %}
+    <h2>Posts for {{ celebrity }} in r/{{ subreddit }}:</h2>
+
+    {% if excel_filename %}
+    <p><a href="{{ url_for('download_file', filename=excel_filename) }}">Download Excel File</a></p>
+    {% endif %}
+
+    <ul>
+        {% for post in posts %}
+        <li class="post-container">
+            <div class="post-header">
+                <b>{{ post['Post Title'] }}</b> - {{ post['Post Author'] }} ({{ post['Subreddit'] }}) <br>
+                {{ post['Post Time'] }}
+            </div>
+            <div class="post-content">
+                {{ post['Post Content'] }} 
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+ 
+    {% endif %}
+
+    <script>
+        const postContainers = document.querySelectorAll('.post-container');
+
+        postContainers.forEach(container => {
+            container.addEventListener('click', () => {
+                container.classList.toggle('expanded');
+            });
+        });
+    </script>
+</body>
+</html>

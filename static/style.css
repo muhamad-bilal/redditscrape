@@ -1,0 +1,325 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #0040C1;
+    position: relative;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+h1 {
+    color: #fff;
+    font-size: 50px;
+    z-index: 1;
+}
+
+.cube {
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    width: 10px;
+    height: 10px;
+    border: solid 1px #003298;
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 12s ease-in forwards infinite;
+}
+
+.cube:nth-child(2n) {
+    border-color: #0051f4;
+}
+
+.cube:nth-child(2) {
+    animation-delay: 2s;
+    left: 25vw;
+    top: 40vh;
+}
+
+.cube:nth-child(3) {
+    animation-delay: 4s;
+    left: 75vw;
+    top: 50vh;
+}
+
+.cube:nth-child(4) {
+    animation-delay: 6s;
+    left: 90vw;
+    top: 10vh;
+}
+
+.cube:nth-child(5) {
+    animation-delay: 8s;
+    left: 10vw;
+    top: 85vh;
+}
+
+.cube:nth-child(6) {
+    animation-delay: 10s;
+    left: 50vw;
+    top: 10vh;
+}
+
+@keyframes cube {
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+.group {
+    position: relative;
+    margin-bottom: 45px;
+}
+
+input {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 285px;
+    border: none;
+    border-bottom: 1px solid #757575;
+}
+
+input:focus {
+    outline: none;
+}
+
+label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+input:focus~label,
+input:valid~label {
+    top: -20px;
+    font-size: 14px;
+    color: #5264AE;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 300px;
+}
+
+.bar:before,
+.bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+input:focus~.bar:before,
+input:focus~.bar:after {
+    width: 50%;
+}
+
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+input:focus~.highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+
+
+.range-group {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 15px;
+    flex-direction: column;
+}
+
+
+.range {
+    position: relative;
+    margin-right: 10px;
+    color: white;
+}
+
+.range-value {
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+    position: relative;
+    bottom: 3px;
+}
+
+/* Range Slider Styling */
+input[type="range"] {
+    -webkit-appearance: none; /* Remove default styles */
+    appearance: none;
+    width: 200px; /* Adjust as needed */
+    height: 10px;  /* Set the height of the track */
+    background: #d3d3d3; /* Light gray track background */
+    border-radius: 5px;
+    outline: none;
+    margin: 10px;          /* Reset any default margins */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px; 
+    height: 20px;
+    background: #5264AE; /* Blue thumb color */
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.2s ease; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+input[type="range"]::-moz-range-thumb {
+    /* Similar styles for Firefox */
+    width: 20px;
+    height: 20px;
+    background: #5264AE;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+input[type="range"]:hover::-webkit-slider-thumb,
+input[type="range"]:hover::-moz-range-thumb {
+    transform: scale(1.2); 
+}
+
+
+
+
+
+.darksoul-hover-fill-button1 {
+    margin: auto;
+    display: inline-flex;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgb(160, 216, 255);
+    background-color: white;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(to right, rgb(160, 216, 255) 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right center;
+    transition: background-position 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.color-fill-1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgb(160, 216, 255);
+    transition: width 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.5s;
+    z-index: -1;
+    animation: fillAnimation 3s forwards cubic-bezier(0.215, 0.610, 0.355, 1);
+    animation-play-state: paused;
+}
+
+.darksoul-hover-fill-button1:hover .color-fill-1 {
+    width: 100%;
+    animation-play-state: running;
+}
+
+.darksoul-hover-fill-button1:hover {
+    box-shadow: 1px 1px 20px rgb(160, 216, 255);
+    background-position: left center;
+}
+
+.darksoul-hover-fill-button1 p {
+    margin: 0;
+    padding: 0 15px;
+    z-index: 1;
+}
+
+@keyframes fillAnimation {
+    to {
+        width: 100%;
+    }
+}
+
+form{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+}
