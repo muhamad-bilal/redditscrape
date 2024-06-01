@@ -29,7 +29,8 @@ git@github.com:muhamad-bilal/redditscrape.git
 <p>2. Install Dependencies:</p>
 
 ```
-see app.py and install all libraries
+pip install -r requirements.txt
+
 ```
 
 <p>3. API</p>
