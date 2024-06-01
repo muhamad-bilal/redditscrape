@@ -30,7 +30,6 @@ git@github.com:muhamad-bilal/redditscrape.git
 
 ```
 pip install -r requirements.txt
-
 ```
 
 <p>3. API</p>
