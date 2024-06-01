@@ -4,11 +4,7 @@
 
 <p id="description">Use this tool to scrape post from reddit based on keywords and subreddit</p>
 
-<h2>🚀 Demo</h2>
 
-<h2>Project Screenshots:</h2>
-
-<img src="" alt="project-screenshot" width="400" height="400/">
 
   
   
