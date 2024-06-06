@@ -11,9 +11,9 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static'
 
 # Your Reddit credentials (move these to environment variables for security)
-client_id = "glP5AXIGG1cBmIlGfzRE7g"
-client_secret = "HzPL3z5BHdgAZE1U8V926ewj9ozAZg"
-user_agent = "PaleontologistSea714 "
+client_id = "--"
+client_secret = "--"
+user_agent = "--"
 
 reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent=user_agent)
 
